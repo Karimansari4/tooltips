@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Tooltips from './Tooltips';
 
 function App() {
+
+  const [positon, setPosition] = useState('right-tooltip')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main">
+      <h1 className='toolHeader'>React Tooltips</h1>
+      <div className='btn-group-div'>
+        <button className='btn' onClick={() => setPosition('left-tooltip')}>LEFT</button>
+        <button className='btn' onClick={() => setPosition('right-tooltip')}>RIGHT</button>
+        <button className='btn' onClick={() => setPosition('top-tooltip')}>TOP</button>
+        <button className='btn' onClick={() => setPosition('bottom-tooltip')}>BOTTOM</button>
+      </div>
+
+      <center>
+        <Tooltips positon={positon} />
+      </center>
     </div>
   );
 }
